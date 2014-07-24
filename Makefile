@@ -13,4 +13,4 @@ t: clean
 	javac test.java && java test
 
 run:
-	java matchmaker
+	java matchmaker 1
