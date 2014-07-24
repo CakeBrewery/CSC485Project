@@ -7,17 +7,22 @@ public class Player {
   private int totalGames = 0;
   private int gamesWon = 0;
   private boolean banned = false;
+  private boolean troll = false;
   private String[] defaultNames = {"Agnes","Alfred","Archy","Bart","Benjamin","Bertram","Bruni","Buster","Edith","Ester","Flo","Francis","Francisco","Gil","Gob","Gus","Hank","Harold","Harriet","Henry","Jacques","Jorge","Juan","Kitty","Lionel","Louie","Lucille","Lupe","Mabel","Maeby","Marco","Marta","Maurice","Maynard","Mildred","Monty","Mordecai","Morty","Pablo","Seymour","Stan","Tobias","Vivian","Walter","Wilbu"};
   Random rdm = new Random();
 
   public Player(){
     this.name = defaultNames[this.rdm.nextInt(this.defaultNames.length)];
     this.mmr = this.rdm.nextInt(10000);
+    this.totalGames=this.rdm.nextInt(1250);
+    this.gamesWon = this.rdm.nextInt(this.totalGames);
   }
 
   public Player(String label){
     this.name = label;
     this.mmr = this.rdm.nextInt(10000);
+    this.totalGames=this.rdm.nextInt(1250);
+    this.gamesWon = this.rdm.nextInt(this.totalGames);
   }
 
   public int getMMR(){

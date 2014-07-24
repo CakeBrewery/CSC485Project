@@ -6,6 +6,10 @@ public class Pool {
   private ArrayList<Player> inGame = new ArrayList<Player>();
   private ArrayList<Game> currentMatches = new ArrayList<Game>();
 
+  public Pool(){
+
+  }
+
   public void add(Player p){
     looking.add(p);
   }
@@ -31,6 +35,11 @@ public class Pool {
 
     //add game to current matches
     currentMatches.add(new Game(radiant, dire));
+  }
+
+  public String toString(){
+    String str =  "Count:"+(looking.size()+inGame.size())+ "["+looking.size()+"/"+inGame.size()+"]"+" Current matches:"+currentMatches.size();
+    return str;
   }
 
 
