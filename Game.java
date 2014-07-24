@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Match {
+public class Game {
   private ArrayList<Player> radiant = new ArrayList<Player>();
   private ArrayList<Player> dire = new ArrayList<Player>();
 
