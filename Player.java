@@ -7,10 +7,11 @@ public class Player {
 	private int totalGames = 0;
 	private int gamesWon = 0;
 	private boolean banned = false;
+  private String[] defaultNames = {"Agnes","Alfred","Archy","Bart","Benjamin","Bertram","Bruni","Buster","Edith","Ester","Flo","Francis","Francisco","Gil","Gob","Gus","Hank","Harold","Harriet","Henry","Jacques","Jorge","Juan","Kitty","Lionel","Louie","Lucille","Lupe","Mabel","Maeby","Marco","Marta","Maurice","Maynard","Mildred","Monty","Mordecai","Morty","Pablo","Seymour","Stan","Tobias","Vivian","Walter","Wilbu"};
 
 	public Player(){
-		this.name = "Player";
-		Random rdm = new Random();
+    Random rdm = new Random();
+		this.name = defaultNames[rdm.nextInt(this.defaultNames.length)];
 		this.mmr = rdm.nextInt(10000);
 	}
 
