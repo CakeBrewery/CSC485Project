@@ -4,7 +4,7 @@ public class Pool {
 
   private ArrayList<Player> looking = new ArrayList<Player>();
   private ArrayList<Player> inGame = new ArrayList<Player>();
-  private ArrayList<Games> matches = new ArrayList<Games>();
+  private ArrayList<Game> currentMatches = new ArrayList<Game>();
 
   public void add(Player p){
     looking.add(p);
@@ -19,10 +19,18 @@ public class Pool {
     inGame.add(p);
   }
 
-  public void joinGame(Collection<Player> c){
-    for(Player p: c){
+  public void joinGame(ArrayList<Player> radiant, ArrayList<Player> dire){
+    //set all players to occupied
+    for(Player p: radiant){
       occupy(p);
     }
+
+    for(Player p: dire){
+      occupy(p);
+    }
+
+    //add game to current matches
+    currentMatches.add(new Game(radiant, dire));
   }
 
 

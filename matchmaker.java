@@ -1,4 +1,4 @@
-public class Matchmaker {
+public class matchmaker {
 
 	public static void main(String[] args) {
 		System.out.println("Hello, World");
