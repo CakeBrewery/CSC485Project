@@ -4,7 +4,7 @@ public class Pool {
 
   private ArrayList<Player> looking = new ArrayList<Player>();
   private ArrayList<Player> inGame = new ArrayList<Player>();
-  private ArrayList<Match> matches = new ArrayList<Match>();
+  private ArrayList<Games> matches = new ArrayList<Games>();
 
   public void add(Player p){
     looking.add(p);
