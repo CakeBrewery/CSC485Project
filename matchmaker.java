@@ -1,7 +1,13 @@
 import java.util.*;
 
 public class matchmaker {
+
+  //List of games currently going on
+  public static ArrayList<Game> games = new ArrayList<Game>();
+
+  //Pool of all players in the system 
   public static Pool pool = new Pool();
+
   public static void generatePlayers(int num){
     for(int i=0;i<num;i++){
       Player p = new Player();
@@ -10,6 +16,13 @@ public class matchmaker {
   }
 
   public static void generateGame(){
+    while(pool.getLooking() >= 10){
+      ArrayList<Player> teamA = new ArrayList<Player>();
+      ArrayList<Player> teamB = new ArrayList<Player>();
+      Game game = new Game(teamA, teamB);
+
+      games.add(game); 
+    }
 
   }
 
@@ -26,6 +39,8 @@ public class matchmaker {
       }catch (NumberFormatException e) {
         System.out.println("Incorrect usage!");
       }
+
+
     }
   }
 

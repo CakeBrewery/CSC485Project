@@ -23,6 +23,10 @@ public class Pool {
     inGame.add(p);
   }
 
+  public int getLooking(){
+    return looking.size(); 
+  }
+
   public void joinGame(ArrayList<Player> radiant, ArrayList<Player> dire){
     //set all players to occupied
     for(Player p: radiant){
