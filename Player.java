@@ -26,6 +26,12 @@ public class Player {
 
   private int party_id = 0;
 
+  //Player status
+  public boolean ingame = false; 
+  public int gamenum = 0; 
+  public String faction = null; 
+
+
   public Player() {
     this.initRand();
   }
@@ -67,6 +73,11 @@ public class Player {
   }
 
   public String toString(){
-    return (this.name+" MMR:"+this.mmr+" W/L/T:"+this.gamesWon+"/"+(this.totalGames-this.gamesWon)+"/"+this.totalGames);
+    if(this.ingame){
+      return ("In Game No. " + this.gamenum + " (" + this.faction + ") " + this.name+" MMR:"+this.mmr+" W/L/T:"+this.gamesWon+"/"+(this.totalGames-this.gamesWon)+"/"+this.totalGames);
+    }
+    else{
+      return (this.name+" MMR:"+this.mmr+" W/L/T:"+this.gamesWon+"/"+(this.totalGames-this.gamesWon)+"/"+this.totalGames);
+    }
   }
 }

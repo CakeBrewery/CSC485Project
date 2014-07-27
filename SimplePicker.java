@@ -10,8 +10,19 @@ public class SimplePicker extends PlayerPicker {
     ArrayList<Player> looking = pool.getLooking();
       	
    	for(int i = 0; i < 5; i++) {
-   	  teamA.add(looking.get(i));
-    	teamB.add(looking.get(i+5));
+      Player p1 = looking.get(i);
+      Player p2 = looking.get(i+5);
+
+      p1.ingame = true; 
+      p1.gamenum = pool.getCurrentMatches().size() +1;
+      p1.faction = "Radiant";
+
+      p2.ingame = true; 
+      p2.gamenum = pool.getCurrentMatches().size() +1;
+      p2.faction = "Dire";
+
+   	  teamA.add(p1);
+    	teamB.add(p2);
    	}
 
    	pool.joinGame(teamA, teamB);
