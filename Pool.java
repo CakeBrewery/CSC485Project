@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Pool {
 
-  private ArrayList<Player> looking = new ArrayList<Player>();
-  private ArrayList<Player> inGame = new ArrayList<Player>();
+  ArrayList<Player> looking = new ArrayList<Player>();
+  ArrayList<Player> inGame = new ArrayList<Player>();
   private ArrayList<Game> currentMatches = new ArrayList<Game>();
 
   public Pool(){
@@ -23,8 +23,16 @@ public class Pool {
     inGame.add(p);
   }
 
-  public int getLooking(){
-    return looking.size(); 
+  public int getLookingCount(){
+    return this.looking.size(); 
+  }
+
+  public ArrayList<Player> getLooking(){
+    return this.looking;
+  }
+
+  public ArrayList<Player> getInGame(){
+    return this.inGame;
   }
 
   public void joinGame(ArrayList<Player> radiant, ArrayList<Player> dire){

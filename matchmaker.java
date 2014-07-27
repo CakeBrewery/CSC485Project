@@ -14,14 +14,8 @@ public class matchmaker {
 
   public static void generateGame(){
     while(pool.getLookingCount() >= 10){
-      ArrayList<Player> teamA = new ArrayList<Player>();
-      ArrayList<Player> teamB = new ArrayList<Player>();
-
-      //TODO: pick 10 players
-
-      //TODO: split players into teams
-
-      pool.joinGame(teamA, teamB);
+      SimplePicker sp = new SimplePicker();
+      sp.allPick(pool);
 
     }
   }
@@ -36,6 +30,37 @@ public class matchmaker {
         System.out.println("Generating "+numToGenerate+" Players");
         generatePlayers(numToGenerate);
         System.out.println(pool);
+
+        //Printing status of before generating matches:
+        System.out.println("\n\nLobby BEFORE Generating Matches\n---");
+        for(Player p : pool.getLooking()){
+          System.out.println(p);
+        }
+
+        System.out.println("\nInGame BEFORE Generating Matches\n---");
+        for(Player p : pool.getInGame()){
+          System.out.println(p);
+        }
+
+        //Generating matches
+        System.out.println("\nGenerating Matches...");
+        generateGame();
+
+        //Printing status after generating matches: 
+        System.out.println("\n\nLobby AFTER Generating Matches\n---");
+        for(Player p : pool.getLooking()){
+          System.out.println(p);
+        }
+
+        System.out.println("\nInGame AFTER Generating Matches\n---");
+        for(Player p : pool.getInGame()){
+          System.out.println(p);
+        }
+
+
+
+
+
       }catch (NumberFormatException e) {
         System.out.println("Incorrect usage!");
       }
