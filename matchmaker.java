@@ -13,11 +13,8 @@ public class matchmaker {
   }
 
   public static void generateGame(){
-    while(pool.getLookingCount() >= 10){
-      SimplePicker sp = new SimplePicker();
-      sp.allPick(pool);
-
-    }
+    SimplePicker sp = new SimplePicker();
+    sp.allPick(pool);
   }
 
   public static void main(String[] args) {
@@ -44,7 +41,11 @@ public class matchmaker {
 
         //Generating matches
         System.out.println("\nGenerating Matches...");
-        generateGame();
+        while(pool.getLookingCount() >= 10){
+          generateGame();
+        }
+
+        System.out.println("Generated " + pool.getCurrentMatches().size() + " Matches");
 
         //Printing status after generating matches: 
         System.out.println("\n\nLobby AFTER Generating Matches\n---");
@@ -56,10 +57,6 @@ public class matchmaker {
         for(Player p : pool.getInGame()){
           System.out.println(p);
         }
-
-
-
-
 
       }catch (NumberFormatException e) {
         System.out.println("Incorrect usage!");

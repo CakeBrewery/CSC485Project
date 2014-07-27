@@ -24,6 +24,8 @@ public class Player {
   private int gpm = 0; 
   private int xpm = 0; 
 
+  private int party_id = 0;
+
   public Player() {
     this.initRand();
   }
