@@ -13,7 +13,7 @@ public class matchmaker {
   }
 
   public static void generateGame(){
-    while(pool.getLooking() >= 10){
+    while(pool.getLookingCount() >= 10){
       ArrayList<Player> teamA = new ArrayList<Player>();
       ArrayList<Player> teamB = new ArrayList<Player>();
 
