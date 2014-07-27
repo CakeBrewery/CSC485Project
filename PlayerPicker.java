@@ -1,5 +1,3 @@
-import java.util.*;
-
 public abstract class PlayerPicker{
 
 	abstract void allPick(Pool pool);
