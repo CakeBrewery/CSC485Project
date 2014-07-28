@@ -31,19 +31,6 @@ public class Player {
     private int totalgpm = 0; 
     private int totalxpm = 0; 
 
-  public class PlayerMatch{
-    public int won = 0;
-    public int kills = 0; 
-    public int deaths = 0; 
-    public int assists = 0; 
-    public int kda = 0;
-    public int kd = 0;
-    public int lasthit = 0; 
-    public int denies = 0; 
-    public int gpm = 0; 
-    public int xpm = 0; 
-  }
-
 
   public Player() {
     this.initRand(25);
@@ -94,7 +81,11 @@ public class Player {
   }
 
   public int getGamesWon(){
-    return this.gamesWon;
+	    return this.gamesWon;
+  }
+  
+  public ArrayList<PlayerMatch> getMatches(){
+	  	return this.matches;
   }
 
   public String toString(){
