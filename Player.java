@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.*;
 
 public class Player {
 
@@ -6,54 +6,79 @@ public class Player {
   Random rdm = new Random();
 
   //Profile data
+  private ArrayList<PlayerMatch> matches = new ArrayList<PlayerMatch>(); 
   private String name;
   private int mmr = 0;
   private int totalGames = 0;
   private int gamesWon = 0;
   private boolean banned = false;
   private boolean troll = false;
-
-  //Match statistics
-  private int kills = 0; 
-  private int deaths = 0; 
-  private int assists = 0; 
-  private int kda = 0;
-  private int kd = 0;
-  private int lasthit = 0; 
-  private int denies = 0; 
-  private int gpm = 0; 
-  private int xpm = 0; 
-
-  private int party_id = 0;
+  private int current_party_id = 0;
 
   //Player status
   public boolean ingame = false; 
   public int gamenum = 0; 
   public String faction = null; 
 
+  //total match statistics
+    private int totalkills = 0; 
+    private int totaldeaths = 0; 
+    private int totalassists = 0; 
+    private int totalkda = 0;
+    private int totalkd = 0;
+    private int totallasthit = 0; 
+    private int totaldenies = 0; 
+    private int totalgpm = 0; 
+    private int totalxpm = 0; 
+
+  public class PlayerMatch{
+    public int won = 0;
+    public int kills = 0; 
+    public int deaths = 0; 
+    public int assists = 0; 
+    public int kda = 0;
+    public int kd = 0;
+    public int lasthit = 0; 
+    public int denies = 0; 
+    public int gpm = 0; 
+    public int xpm = 0; 
+  }
+
 
   public Player() {
-    this.initRand();
+    this.initRand(25);
   }
 
   public Player(String label) {
-    this.initRand();
+    this.initRand(25);
     this.name = label; 
   }
 
-  public void initRand() {
+  public void initRand(int num_matches) {
     this.name = defaultNames[this.rdm.nextInt(this.defaultNames.length)];
     this.mmr = this.rdm.nextInt(10000);
     this.totalGames=this.rdm.nextInt(1250);
     this.gamesWon = this.rdm.nextInt(this.totalGames); 
 
-    this.kills = this.rdm.nextInt(100);
-    this.deaths = this.rdm.nextInt(100);
-    this.assists = this.rdm.nextInt(100);
-    this.lasthit = this.rdm.nextInt(400);
-    this.denies = this.rdm.nextInt(400);
-    this.gpm = this.rdm.nextInt(1000);
-    this.xpm = this.rdm.nextInt(1000);
+
+    for(int i = 0; i < num_matches; i++){
+      PlayerMatch match = new PlayerMatch();
+      match.kills = this.rdm.nextInt(100);
+      this.totalkills += match.kills;
+      match.deaths = this.rdm.nextInt(100);
+      this.totaldeaths += match.deaths;
+      match.assists = this.rdm.nextInt(100);
+      this.totalassists += match.assists;
+      match.lasthit = this.rdm.nextInt(400);
+      this.totallasthit += match.lasthit;
+      match.denies = this.rdm.nextInt(400);
+      this.totaldenies += match.denies;
+      match.gpm = this.rdm.nextInt(1000);
+      this.totalgpm+= match.gpm;
+      match.xpm = this.rdm.nextInt(1000);
+      this.totalxpm += match.xpm;
+      matches.add(match); 
+    }
   }
 
   public int getMMR(){
