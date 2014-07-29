@@ -1,7 +1,7 @@
 default: clean build run
 
 build: clean
-	javac *.java
+	javac -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar *.java
 
 clean:
 	rm -rf *.class
@@ -13,7 +13,7 @@ t: clean
 	javac test.java && java test
 
 mac: clean
-	javac -cp $CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar *.java
+	javac -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar *.java
 
 run:
-	java -cp $CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar matchmaker 30
+	java -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar matchmaker 30
