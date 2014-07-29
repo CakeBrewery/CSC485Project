@@ -16,4 +16,4 @@ mac: clean
 	javac -cp $CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar *.java
 
 run:
-	java matchmaker 30
+	java -cp $CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar matchmaker 30
