@@ -34,6 +34,7 @@ public class Player {
 
   public Player() {
     this.initRand(25);
+    this.totalGames = matches.size();
   }
 
   public Player(String label) {
@@ -44,9 +45,7 @@ public class Player {
   public void initRand(int num_matches) {
     this.name = defaultNames[this.rdm.nextInt(this.defaultNames.length)];
     this.mmr = this.rdm.nextInt(10000);
-    this.gamesWon = this.rdm.nextInt(this.totalGames);
-
-
+    		
     for(int i = 0; i < num_matches; i++){
       PlayerMatch match = new PlayerMatch();
       match.kills = this.rdm.nextInt(100);
