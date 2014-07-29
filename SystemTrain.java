@@ -61,16 +61,20 @@ public class SystemTrain {
 
 		}
 		
-		LinearProgram LP = new LinearProgram();
+		LinearProgram lp = new LinearProgram();
 		
-		LinearProgramSolver sol = SolverFactory.newDefault();
-
-		return null;
+		
+		
+		lp.setMinProblem(true);
+		
+		LinearProgramSolver solver  = SolverFactory.newDefault();
+		
+		return solver.solve(lp);
 	}
 	
 	public static double getPlayerSkill(Player player, double[] lambda){
 		
-		return null;
+		return 0.0;
 	}
 	
 	private static double[] getGameStats(int player, int game, Pool pool){
