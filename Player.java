@@ -6,7 +6,7 @@ public class Player {
   Random rdm = new Random();
 
   //Profile data
-  private ArrayList<PlayerMatch> matches = new ArrayList<PlayerMatch>(); 
+  private ArrayList<PlayerMatch> matches = new ArrayList<PlayerMatch>();
   private String name;
   private int mmr = 0;
   private int totalGames = 0;
@@ -16,20 +16,20 @@ public class Player {
   private int current_party_id = 0;
 
   //Player status
-  public boolean ingame = false; 
-  public int gamenum = 0; 
-  public String faction = null; 
+  public boolean ingame = false;
+  public int gamenum = 0;
+  public String faction = null;
 
   //total match statistics
-    private int totalkills = 0; 
-    private int totaldeaths = 0; 
-    private int totalassists = 0; 
+    private int totalkills = 0;
+    private int totaldeaths = 0;
+    private int totalassists = 0;
     private int totalkda = 0;
     private int totalkd = 0;
-    private int totallasthit = 0; 
-    private int totaldenies = 0; 
-    private int totalgpm = 0; 
-    private int totalxpm = 0; 
+    private int totallasthit = 0;
+    private int totaldenies = 0;
+    private int totalgpm = 0;
+    private int totalxpm = 0;
 
 
   public Player() {
@@ -38,14 +38,13 @@ public class Player {
 
   public Player(String label) {
     this.initRand(25);
-    this.name = label; 
+    this.name = label;
   }
 
   public void initRand(int num_matches) {
     this.name = defaultNames[this.rdm.nextInt(this.defaultNames.length)];
     this.mmr = this.rdm.nextInt(10000);
-    this.totalGames=this.rdm.nextInt(1250);
-    this.gamesWon = this.rdm.nextInt(this.totalGames); 
+    this.gamesWon = this.rdm.nextInt(this.totalGames);
 
 
     for(int i = 0; i < num_matches; i++){
@@ -64,7 +63,7 @@ public class Player {
       this.totalgpm+= match.gpm;
       match.xpm = this.rdm.nextInt(1000);
       this.totalxpm += match.xpm;
-      matches.add(match); 
+      matches.add(match);
     }
   }
 
@@ -81,15 +80,15 @@ public class Player {
   }
 
   public int getGamesWon(){
-	    return this.gamesWon;
+      return this.gamesWon;
   }
-  
+
   public ArrayList<PlayerMatch> getMatches(){
-	  	return this.matches;
+      return this.matches;
   }
-  
+
   public String getName(){
-	  return name;
+    return name;
   }
 
   public String toString(){
