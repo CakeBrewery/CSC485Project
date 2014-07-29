@@ -67,7 +67,11 @@ public class matchmaker {
         System.out.println("Incorrect usage!");
       }
 
-      SystemTrain.StartTraining(pool);
+      double[] parameterization_const = SystemTrain.StartTraining(pool);
+      
+      for (Player player : pool.getAllPlayers()){
+    	  System.out.println("Player " + player.getName() + ", skill: " + SystemTrain.getPlayerSkill(player, parameterization_const));
+      }
 
     }
   }
