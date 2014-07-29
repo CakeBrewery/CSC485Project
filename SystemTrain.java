@@ -69,7 +69,17 @@ public class SystemTrain {
 		
 		LinearProgramSolver solver  = SolverFactory.newDefault();
 		
-		return solver.solve(lp);
+		double[] retVal = solver.solve(lp);
+		
+		System.out.print("Lambda solved: ( ");
+		
+		for (int i = 0; i < 9; i++){
+			System.out.print(retVal[i] + ", ");
+		}
+		
+		System.out.print(")\r\n");
+		
+		return retVal;
 	}
 	
 	public static double getPlayerSkill(Player player, double[] lambda){
