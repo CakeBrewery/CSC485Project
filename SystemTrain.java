@@ -4,9 +4,34 @@ import java.util.ArrayList;
 public class SystemTrain {
 
 	public static float[] StartTraining(Pool pool){
+		
+		final int usingGameCount = 10;
+		final int usingPlayerCount = 25;
+		
 		float[] mu = getTotalAverages(pool);
 		
+		float[] lam = new float[9];
 		
+		for (int i = 0; i < usingPlayerCount; i++){
+			if (i >= pool.getAllPlayers().size()){
+				System.out.println("Insufficient amount of players to initialize system.");
+				return null;
+			}
+			
+			Player curPlayer = pool.getAllPlayers().get(i);
+			
+			for (int j = 0; j < usingGameCount; j++){
+				if (j >= curPlayer.getTotalGames()){
+					System.out.println("Insufficient games for player " + curPlayer.getName() + " (player #" + (j+1) + ").");
+					return null;
+				}
+				
+				
+			}
+			
+		}
+		
+		return null;
 	}
 
 	private static float[] getTotalAverages(Pool pool) {
@@ -22,7 +47,7 @@ public class SystemTrain {
 		
 		int total = 0;
 		
-		for (Player curPlayer : pool.getLooking()){
+		for (Player curPlayer : pool.getAllPlayers()){
 			for (PlayerMatch curMatch : curPlayer.getMatches()){
 				av_kills += curMatch.kills; 
 				av_deaths += curMatch.deaths; 
@@ -64,7 +89,7 @@ public class SystemTrain {
 		
 		int total = 0;
 		
-		for (Player curPlayer : pool.getLooking()){
+		for (Player curPlayer : pool.getAllPlayers()){
 			ArrayList<PlayerMatch> match = curPlayer.getMatches();
 			
 			PlayerMatch curMatch = match.get(match.size() - j);
@@ -108,7 +133,7 @@ public class SystemTrain {
 		
 		int total = 0;
 		
-		Player curPlayer = pool.getLooking().get(i-1);
+		Player curPlayer = pool.getAllPlayers().get(i-1);
 		
 		for (PlayerMatch curMatch : curPlayer.getMatches()){
 			av_kills += curMatch.kills; 

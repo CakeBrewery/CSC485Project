@@ -87,6 +87,10 @@ public class Player {
   public ArrayList<PlayerMatch> getMatches(){
 	  	return this.matches;
   }
+  
+  public String getName(){
+	  return name;
+  }
 
   public String toString(){
     if(this.ingame){

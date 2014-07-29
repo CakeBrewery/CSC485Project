@@ -9,6 +9,14 @@ public class Pool {
   public Pool(){
 
   }
+  public ArrayList<Player> getAllPlayers(){
+	  ArrayList<Player> retVal = new ArrayList<Player>();
+	  
+	  retVal.addAll(inGame);
+	  retVal.addAll(looking);
+	  
+	  return retVal;
+  }
 
   public void add(Player p){
     looking.add(p);
