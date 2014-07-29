@@ -83,8 +83,54 @@ public class SystemTrain {
 	}
 	
 	public static double getPlayerSkill(Player player, double[] lambda){
+		int n_matches = 10;
+		double avg_kills=0;
+		double avg_deaths=0;
+		double avg_assists=0;
+		double avg_kda=0;
+		double avg_kd=0;
+		double avg_lasthit=0;
+		double avg_denies=0;
+		double avg_gpm=0; 
+		double avg_xpm=0; 
+
+		double total_sum = 0;
+
+		for(int i = 0; i<n_matches; i++){
+			PlayerMatch m = player.getMatches().get(i);
+			avg_kills += m.kills;
+			avg_deaths+= m.deaths;
+			avg_assists+= m.assists;
+			avg_kda += m.kda;
+			avg_kd += m.kd;
+			avg_lasthit += m.lasthit;
+			avg_denies += m.denies;
+			avg_gpm += m.gpm;
+			avg_xpm += m.xpm;
+		}
+
+		avg_kills = avg_kills/n_matches;
+		avg_deaths= avg_deaths/n_matches;
+		avg_assists = avg_assists/n_matches;
+		avg_kda = avg_kda/n_matches;
+		avg_kd = avg_kd/n_matches;
+		avg_lasthit = avg_lasthit/n_matches;
+		avg_denies = avg_denies/n_matches;
+		avg_gpm = avg_gpm/n_matches;
+		avg_xpm = avg_xpm/n_matches;
+
+		total_sum = (avg_kills*lambda[0]
+					+avg_deaths*lambda[1]
+					+avg_assists*lambda[2]
+					+avg_kda*lambda[3]
+					+avg_kd*lambda[4]
+					+avg_lasthit*lambda[5]
+					+avg_denies*lambda[6]
+					+avg_gpm*lambda[7]
+					+avg_xpm*lambda[8]
+					);
 		
-		return 0.0;
+		return total_sum;
 	}
 	
 	private static double[] getGameStats(int player, int game, Pool pool){
