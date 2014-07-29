@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-import scpsolver.lpsolver.LinearProgramSolver;
-import scpsolver.lpsolver.SolverFactory;
-import scpsolver.problems.LinearProgram;
+import scpsolver.constraints.*;
+import scpsolver.lpsolver.*;
+import scpsolver.problems.*;
 
 public class SystemTrain {
 
@@ -61,13 +61,35 @@ public class SystemTrain {
 
 		}
 		
-		LinearProgram lp = new LinearProgram();
+		double[] finalCollection = {0,0,0,0,0,0,0,0,0};
 		
+		for (int i = 0; i < order; i++){
+			finalCollection[0] += vkCollection[i][0];
+			finalCollection[1] += vkCollection[i][1];
+			finalCollection[2] += vkCollection[i][2];
+			finalCollection[3] += vkCollection[i][3];
+			finalCollection[4] += vkCollection[i][4];
+			finalCollection[5] += vkCollection[i][5];
+			finalCollection[6] += vkCollection[i][6];
+			finalCollection[7] += vkCollection[i][7];
+			finalCollection[8] += vkCollection[i][8];
+		}
 		
-		
+		LinearProgram lp = new LinearProgram(finalCollection);
+
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{1.0,0,0,0,0,0,0,0,0}, mu[0], "c1"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,1.0,0,0,0,0,0,0,0}, mu[1], "c2"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,1.0,0,0,0,0,0,0}, mu[2], "c3"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,0,1.0,0,0,0,0,0}, mu[3], "c4"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,0,0,1.0,0,0,0,0}, mu[4], "c5"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,0,0,0,1.0,0,0,0}, mu[5], "c6"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,0,0,0,0,1.0,0,0}, mu[6], "c7"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,0,0,0,0,0,1.0,0}, mu[7], "c8"));
+		lp.addConstraint(new LinearBiggerThanEqualsConstraint(new double[]{0,0,0,0,0,0,0,0,1.0}, mu[8], "c9"));
+				
 		lp.setMinProblem(true);
 		
-		LinearProgramSolver solver  = SolverFactory.newDefault();
+		LinearProgramSolver solver = SolverFactory.newDefault();
 		
 		double[] retVal = solver.solve(lp);
 		
@@ -196,7 +218,7 @@ public class SystemTrain {
 		return retVal;
 	}
 
-	public static double[] calcGameAv(int j, Pool pool) {
+	private static double[] calcGameAv(int j, Pool pool) {
 		double av_kills = 0;
 		double av_deaths = 0;
 		double av_assists = 0;
@@ -241,7 +263,7 @@ public class SystemTrain {
 		return retVal;
 	}
 
-	public static double[] calcPlayerAv(int i, Pool pool) {
+	private static double[] calcPlayerAv(int i, Pool pool) {
 		double av_kills = 0;
 		double av_deaths = 0;
 		double av_assists = 0;
