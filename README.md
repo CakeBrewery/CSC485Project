@@ -5,6 +5,13 @@ Group Project
 
 Team Members:
 
-* Bill Xiong
-* Justin Gaudet
-* Samuel Navarette
+* Justin Gaudet V00782020
+* Samuel Navarette V00744358
+* Bill Xiong V00737042
+
+
+
+Installation Instructions
+--------
+
+If you are on a Windows machine, run `build.bat`. On a Unix-based machine (including Mac OS X), run `make` instead. Any computer with Java Version > 1.7.0_55 should be able to compile it. A Jar file is included in case compilation does not work out on your machine.

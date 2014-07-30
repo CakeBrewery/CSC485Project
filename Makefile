@@ -12,8 +12,5 @@ test: clean
 t: clean
 	javac test.java && java test
 
-mac: clean
-	javac -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar *.java
-
 run:
 	java -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar matchmaker 30
