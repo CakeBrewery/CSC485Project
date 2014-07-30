@@ -9,7 +9,7 @@ public class SystemTrain {
 	public static double[] StartTraining(Pool pool) {
 
 		final int usingGameCount = 10;
-		final int usingPlayerCount = 25;
+		final int usingPlayerCount = pool.getLooking().size();
 		
 		int order = usingGameCount * usingPlayerCount;
 		

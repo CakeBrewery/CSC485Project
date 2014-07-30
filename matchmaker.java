@@ -29,17 +29,24 @@ public class matchmaker {
         int numToGenerate = Integer.parseInt(args[0]);
         System.out.println("Generating "+numToGenerate+" Players");
         generatePlayers(numToGenerate);
-        System.out.println(pool);
+		
+		double[] parameterization_const = SystemTrain.StartTraining(pool);
+      
+		//for (Player player : pool.getAllPlayers()){
+			//System.out.println("Player " + player.getName() + ", skill: " + SystemTrain.getPlayerSkill(player, parameterization_const));
+		//}
+        
+		System.out.println(pool);
 
         //Printing status of before generating matches:
         System.out.println("\n\nLobby BEFORE Generating Matches\n---");
         for(Player p : pool.getLooking()){
-          System.out.println(p);
+          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
         }
 
         System.out.println("\nInGame BEFORE Generating Matches\n---");
         for(Player p : pool.getInGame()){
-          System.out.println(p);
+          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
         }
 
         //Generating matches
@@ -53,25 +60,21 @@ public class matchmaker {
         //Printing status after generating matches: 
         System.out.println("\n\nLobby AFTER Generating Matches\n---");
         for(Player p : pool.getLooking()){
-          System.out.println(p);
+          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
         }
 
         System.out.println("\nInGame AFTER Generating Matches\n---");
         for(Player p : pool.getInGame()){
-          System.out.println(p);
+          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
         }
         
-        SystemTrain.StartTraining(pool);
+        //SystemTrain.StartTraining(pool);
 
       }catch (NumberFormatException e) {
         System.out.println("Incorrect usage!");
       }
 
-      double[] parameterization_const = SystemTrain.StartTraining(pool);
-      
-      for (Player player : pool.getAllPlayers()){
-    	  System.out.println("Player " + player.getName() + ", skill: " + SystemTrain.getPlayerSkill(player, parameterization_const));
-      }
+
 
     }
   }

@@ -13,4 +13,4 @@ t: clean
 	javac test.java && java test
 
 run:
-	java -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar matchmaker 30
+	java -cp $$CLASSPATH:GLPKSolverPack.jar:SCPSolver.jar matchmaker 55 

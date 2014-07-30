@@ -92,10 +92,10 @@ public class Player {
 
   public String toString(){
     if(this.ingame){
-      return ("In Game No. " + this.gamenum + " (" + this.faction + ") " + this.name+" MMR:"+this.mmr+" W/L/T:"+this.gamesWon+"/"+(this.totalGames-this.gamesWon)+"/"+this.totalGames);
+      return ("In Game " + this.gamenum + " (" + this.faction + ") " + this.name);
     }
     else{
-      return (this.name+" MMR:"+this.mmr+" W/L/T:"+this.gamesWon+"/"+(this.totalGames-this.gamesWon)+"/"+this.totalGames);
+      return (this.name);
     }
   }
 }
