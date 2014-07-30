@@ -14,4 +14,4 @@ Team Members:
 Installation Instructions
 --------
 
-If you are on a Windows machine, run `build.bat`. On a Unix-based machine (including Mac OS X), run `make` instead. Any computer with Java Version > 1.7.0_55 should be able to compile it. A Jar file is included in case compilation does not work out on your machine.
+If you are on a Windows machine, run `build.bat`. On a Unix-based machine (including Mac OS X), run `make` instead. Due to the LPSolver used, this program does not work on 64bit Java versions. Any computer with Java Version > 1.7 x86 should be able to compile it. A Jar file is included in case compilation does not work out on your machine.
