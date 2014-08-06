@@ -9,6 +9,7 @@ public class SimplePicker extends PlayerPicker {
 
     ArrayList<Player> looking = pool.getLooking();
 	Collections.sort(looking, new Player());
+	Collections.reverse(looking);
       	
    	for(int i = 0; i < 5; i++) {
       Player p1 = looking.get(i);
