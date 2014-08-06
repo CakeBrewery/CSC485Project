@@ -1,3 +1,3 @@
 javac -cp ".;GLPKSolverPack.jar;SCPSolver.jar" *.java
 echo "BUILD FINISHED"
-java -cp ".;GLPKSolverPack.jar;SCPSolver.jar" matchmaker 35 
+java -cp ".;GLPKSolverPack.jar;SCPSolver.jar" matchmaker 55 
