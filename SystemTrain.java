@@ -93,13 +93,15 @@ public class SystemTrain {
 		
 		double[] retVal = solver.solve(lp);
 		
-		System.out.print("Lambda solved: ( ");
+		retVal[1]  = -retVal[1];
+		
+		System.out.print("Lambda solved:\r\n");
 		
 		for (int i = 0; i < 9; i++){
-			System.out.print(retVal[i] + ", ");
+			System.out.print(retVal[i] + "\r\n");
 		}
 		
-		System.out.print(")\r\n");
+		System.out.print("\r\n");
 		
 		return retVal;
 	}
