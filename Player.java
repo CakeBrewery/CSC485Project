@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Player {
+public class Player implements Comparable<Player>, Comparator<Player>{
 
   private String[] defaultNames = {"Agnes","Alfred","Archy","Bart","Benjamin","Bertram","Bruni","Buster","Edith","Ester","Flo","Francis","Francisco","Gil","Gob","Gus","Hank","Harold","Harriet","Henry","Jacques","Jorge","Juan","Kitty","Lionel","Louie","Lucille","Lupe","Mabel","Maeby","Marco","Marta","Maurice","Maynard","Mildred","Monty","Mordecai","Morty","Pablo","Seymour","Stan","Tobias","Vivian","Walter","Wilbu"};
   Random rdm = new Random();
@@ -14,6 +14,7 @@ public class Player {
   private boolean banned = false;
   private boolean troll = false;
   private int current_party_id = 0;
+  private double skill = 0;
 
   //Player status
   public boolean ingame = false;
@@ -73,6 +74,10 @@ public class Player {
   public void setMMR(int mmr){
     this.mmr = mmr;
   }
+  
+  public void setSkill(double skill){
+	this.skill = skill;
+  }
 
   public int getTotalGames(){
     return this.totalGames;
@@ -81,6 +86,11 @@ public class Player {
   public int getGamesWon(){
       return this.gamesWon;
   }
+  
+  public double getSkill()
+  {
+	   return this.skill;
+  }
 
   public ArrayList<PlayerMatch> getMatches(){
       return this.matches;
@@ -88,6 +98,16 @@ public class Player {
 
   public String getName(){
     return name;
+  }
+  
+  public int compareTo(Player p){
+	return (this.name).compareTo(p.name);
+  }
+  
+  public int compare(Player p1, Player p2){
+	if (p1.skill < p2.skill) return -1;
+	if (p1.skill > p2.skill) return 1;
+	return 0;
   }
 
   public String toString(){

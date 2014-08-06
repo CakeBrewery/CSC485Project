@@ -41,12 +41,13 @@ public class matchmaker {
         //Printing status of before generating matches:
         System.out.println("\n\nLobby BEFORE Generating Matches\n---");
         for(Player p : pool.getLooking()){
-          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
+		  p.setSkill(SystemTrain.getPlayerSkill(p, parameterization_const));
+          System.out.println(p + " skill: " + p.getSkill());
         }
 
         System.out.println("\nInGame BEFORE Generating Matches\n---");
         for(Player p : pool.getInGame()){
-          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
+          System.out.println(p + " skill: " + p.getSkill());
         }
 
         //Generating matches
@@ -60,12 +61,12 @@ public class matchmaker {
         //Printing status after generating matches: 
         System.out.println("\n\nLobby AFTER Generating Matches\n---");
         for(Player p : pool.getLooking()){
-          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
+          System.out.println(p + " skill: " + p.getSkill());
         }
 
         System.out.println("\nInGame AFTER Generating Matches\n---");
         for(Player p : pool.getInGame()){
-          System.out.println(p + " skill: " + SystemTrain.getPlayerSkill(p, parameterization_const));
+          System.out.println(p + " skill: " + p.getSkill());
         }
         
         //SystemTrain.StartTraining(pool);

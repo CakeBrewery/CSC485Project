@@ -8,6 +8,7 @@ public class SimplePicker extends PlayerPicker {
     ArrayList<Player> teamB = new ArrayList<Player>();
 
     ArrayList<Player> looking = pool.getLooking();
+	Collections.sort(looking, new Player());
       	
    	for(int i = 0; i < 5; i++) {
       Player p1 = looking.get(i);
