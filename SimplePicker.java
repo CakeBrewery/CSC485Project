@@ -11,9 +11,9 @@ public class SimplePicker extends PlayerPicker {
 	Collections.sort(looking, new Player());
 	Collections.reverse(looking);
       	
-   	for(int i = 0; i < 5; i++) {
+   	for(int i = 0; i < 10; i = i+2) {
       Player p1 = looking.get(i);
-      Player p2 = looking.get(i+5);
+      Player p2 = looking.get(i+1);
 
       p1.ingame = true; 
       p1.gamenum = pool.getCurrentMatches().size() +1;
