@@ -5,9 +5,9 @@ Group Project
 
 Team Members:
 
-* Justin Gaudet V00782020
-* Samuel Navarette V00744358
-* Bill Xiong V00737042
+* Justin Gaudet 
+* Samuel Navarette 
+* Bill Xiong 
 
 
 
